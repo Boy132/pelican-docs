@@ -8,7 +8,7 @@ By default the Panel contains the following OAuth providers:
 * [X (Twitter)](https://developer.twitter.com/en/apps)
 * LinkedIn
 * [Goggle](https://console.developers.google.com)
-* [Github](https://github.com/settings/developers)
+* [Github](#github)
 * Gitlab
 * Bitbucket
 * Slack
@@ -18,3 +18,11 @@ By default the Panel contains the following OAuth providers:
 * [WHMCS](https://docs.whmcs.com/OpenID_Connect)
 
 Additional providers can be added with plugins. (once the plugin system has been implemented)
+
+## Github
+
+1. Visit the [Github Developer Dashboard](https://github.com/settings/developers).
+2. Go to `OAuth Apps` and click on `New OAuth App`.
+3. Enter an Application Name (e.g. `My Cool Pelican Panel`), the URL of your Panel (e.g. 'https://cool.panel.com') and `<panel domain>/auth/oauth/callback` (e.g. `https://cool.panel.com/auth/oauth/callback`) as Callback URL.
+4. Once you registered your app, generate a new client secret.
+5. Edit your `.env` file: set `OAUTH_GITHUB_ENABLED` to `TRUE` and enter your client id (`OAUTH_GITHUB_CLIENT_ID`) & client secret (`OAUTH_GITHUB_CLIENT_SECRET`).
