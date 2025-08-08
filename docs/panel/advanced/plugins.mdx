@@ -62,7 +62,7 @@ Make sure to replace `<namespace>` with your actual namespace.
 Normally, translations will be registered under the namespace of your plugin.  
 This means you need to prefix translation keys with your plugin id when using `trans()`, e.g. `trans('myplugin::strings.test')` would look for `test` inside `plugins/myplugin/lang/strings.php`.
 
-If your plugin adds new default languages to the panel you need to set the plugin category to `languge`. This way translations will be registered without any namespace.
+If your plugin adds new default languages to the panel you need to set the plugin category to `language`. This way translations will be registered without any namespace.
 
 ### Plugin Settings
 
@@ -106,7 +106,7 @@ public function saveSettings(array $data): void
 
 ### Modify existing resources
 
-Most of the default panel resources and pages have static methods to register custom data or to change existing data. You can call these static methods inside the `register` function of a service provider.
+Most of the default panel resources and pages have static methods to register custom classes or to change existing ones. You can call these static methods inside the `register` function of a service provider.
 
 Examples:
 
@@ -139,7 +139,7 @@ public function register(): void
     Role::registerCustomDefaultPermissions('myModel');
 
     // Register custom permissions
-    Role::registerCustomDefaultPermissions([
+    Role::registerCustomPermissions([
         'myModel' => [
             'customPerm1',
             'customPerm2'
@@ -147,7 +147,7 @@ public function register(): void
     ]);
 
     // You can also add new permissions to existing models
-    Role::registerCustomDefaultPermissions([
+    Role::registerCustomPermissions([
         'server' => [
             'custom',
         ]
@@ -161,7 +161,7 @@ public function register(): void
 
 ### Additional composer dependencies
 
-If you need additional composer packages as dependency for your panel you can add the package name to the `composer_packages` array in your `plugin.json`:
+If you need additional composer packages as dependency for your plugin you can add the package name to the `composer_packages` array in your `plugin.json`:
 
 ```json
 "composer_packages": [
